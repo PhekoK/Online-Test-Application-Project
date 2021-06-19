@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "id": 1001,
+            "username": "Karabo Pheko",
+            "email": "pheko.karabo@gmail.com"
+        },
+        {
+            "id": 1002,
+            "username": "Bhawna Gunwani",
+            "email": "gunwani.bhawna@gmail.com"
+        },
+        {
+            "id": 1003,
+            "username": "John Doe",
+            "email": "doe.john@gmail.com"
+        }
+    ]
+}

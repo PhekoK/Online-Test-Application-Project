@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { FormsModule } from '@angular/forms';
 import { QuizhomeComponent } from './quizhome/quizhome.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { QuizhomeComponent } from './quizhome/quizhome.component';
   ],
   imports: [
     BrowserModule, 
+    HttpClientModule,
     RouterModule.forRoot(applicationRoutes), 
     FormsModule
   ],

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "json:server": "json-server --watch javascriptquiz.json --port=5000",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
