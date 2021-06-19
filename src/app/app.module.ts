@@ -12,6 +12,10 @@ import { applicationRoutes } from './app-routing.module';
 import { MainComponent } from './main/main.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { FormsModule } from '@angular/forms';
+import { QuizhomeComponent } from './quizhome/quizhome.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +26,14 @@ import { ContactComponent } from './contact/contact.component';
     LoginComponent,
     RegisterComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    PageNotFoundComponent,
+    QuizhomeComponent
   ],
   imports: [
     BrowserModule, 
-    RouterModule.forRoot(applicationRoutes)
+    RouterModule.forRoot(applicationRoutes), 
+    FormsModule
   ],
   providers: [],
   bootstrap: [MainComponent]
