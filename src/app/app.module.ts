@@ -17,8 +17,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormsModule } from '@angular/forms';
 import { QuizhomeComponent } from './quizhome/quizhome.component';
 import { HttpClientModule } from '@angular/common/http';
-import { JstestComponent } from './jstest/jstest.component';
-import { DptestComponent } from './dptest/dptest.component';
+import { RulesComponent } from './rules/rules.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { DptestComponent } from './dptest/dptest.component';
     ContactComponent,
     PageNotFoundComponent,
     QuizhomeComponent,
-    JstestComponent,
-    DptestComponent
+    RulesComponent
   ],
   imports: [
     BrowserModule, 
