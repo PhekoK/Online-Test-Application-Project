@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import {  Router } from '@angular/router';
 import { QuizService } from '../services/quiz.service';
 import { Option, Question, Test, QuizConfig } from '../models/app';
@@ -14,6 +15,8 @@ export class QuizComponent implements OnInit {
 
   //test: Test = new Test();
   //id: any;
+  //test: Test = new Test();
+  //id: any;
   quizes: any[] = [];
   quiz: Test = new Test(null);
   mode = 'quiz';
@@ -21,8 +24,8 @@ export class QuizComponent implements OnInit {
   config: QuizConfig = {
     'allowBack': true,
     'allowReview': true,
-    'autoMove': false,  // if true, it will move to next question automatically when answered.
-    'duration': 300,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
+    'autoMove': false,  // if true, it will move to next question when answered.
+    'duration': 300,  // indicates the time (in secs) in which the test needs to be finished
     'pageSize': 1,
     'requiredAll': false,  // indicates if you must answer all the questions before submitting.
     'richText': false,
@@ -51,7 +54,7 @@ export class QuizComponent implements OnInit {
               private _quizService: QuizService){  }
 
   ngOnInit() {
-    this.quizes = this._quizService.getAll();
+    this.quizes = this._quizService.getAll(); //fetches quizes from backend 
     this.quizName = this.quizes[0].id;
     this.loadQuiz(this.quizName);
   }
@@ -64,16 +67,13 @@ export class QuizComponent implements OnInit {
   }*/
 
   loadQuiz(quizName: string) {
-    this._quizService.get(quizName).subscribe(result => {
-      this.quiz = new Test(result);
+    this._quizService.get(quizName).subscribe(res => {
+      this.quiz = new Test(res);
       this.pager.count = this.quiz.questions.length;
       this.startTime = new Date();
       this.ellapsedTime = '00:00';
-      this.timer = setInterval( () => {
-        this.tick();
-      }, 1000); 
+      this.timer = setInterval(() => { this.tick(); }, 1000);
       this.duration = this.parseTime(this.config.duration);
-      
     });
     this.mode = 'quiz';
   }
@@ -85,38 +85,33 @@ export class QuizComponent implements OnInit {
     return `${mins}:${secs}`;
   }
 
+
   tick() {
     const now = new Date();
     const diff = (now.getTime() - this.startTime.getTime()) / 1000;
-    if(diff >= this.config.duration){
+    if (diff >= this.config.duration) {
       this.onSubmit();
     }
+    this.ellapsedTime = this.parseTime(diff);
   }
-  onSubmit() {
-    let answers = [];
-    this.quiz.questions.forEach(x => answers.push({ 'quizId': this.id, 'questionsId': x.id, 'answered': x.answered}));
-
-    //Post your data to the server below. answers contain questionId and lets the users answer
-    console.log(this.quiz.questions);
-    this.mode = 'result';
-  }
-
-  isAnswered(question: Question){
+  
+  isAnswered(question: Question) {
     return question.options.find(x => x.selected) ? 'Answered' : 'Not Answered';
-  }
+  };
 
-  isCorrect(question: Question){
-    return question.options.every(x => x.selected  === x.isAnswer) ? 'correct' : 'incorrect';
-  }
+  isCorrect(question: Question) {
+    return question.options.every(x => x.selected === x.isAnswer) ? 'correct' : 'wrong';
+  };
 
-  goTo(index: number){
-    if(index >= 0 && index < this.pager.count){
+
+  goTo(index: number) {
+    if (index >= 0 && index < this.pager.count) {
       this.pager.index = index;
       this.mode = 'quiz';
     }
   }
 
-  onSelect(question: Question, option: Option){
+  onSelect(question: Question, option: Option) {
     if (question.questionTypeId === 1) {
       question.options.forEach((x) => { if (x.id !== option.id) x.selected = false; });
     }
@@ -133,6 +128,14 @@ export class QuizComponent implements OnInit {
 
   goBack(){
     this._router.navigate(['./quizhome']);
+  }
+
+  onSubmit(){
+    let answers = [];
+    this.quiz.questions.forEach(i => answers.push({ 'testId': this.id , 'questionId': i.id, 'answered': i.answered}));
+
+    console.log(this.quiz.questions);
+    this.mode = 'result';
   }
 
 }
