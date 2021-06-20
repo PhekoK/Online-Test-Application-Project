@@ -8,7 +8,7 @@
     <!--Default display is Javascript Test-->
     <div class="col-6 text-right">
         Choose a Test: 
-       <select name="" id="" [(ngModel)]="quizName" (change)="loadQuiz(quizName)">
+       <select class="form-select" name="" id="" [(ngModel)]="quizName" (change)="loadQuiz(quizName)">
             <option value="" *ngFor="let quiz of quizes" [value]="quiz.id">{{quiz.name}}</option>
         </select> 
     </div>
@@ -23,6 +23,7 @@
     <hr />
 
     <!--Displays current question and their Options -->
+    
     <div *ngIf="mode=='quiz' && quiz">
         <div *ngFor="let question of filteredQuestions;">
           <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
@@ -44,9 +45,8 @@
         <div class="text-center">
           <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
           <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
-          <button class="btn btn-primary" (click)="goTo(pager.index + 1);">Next</button>
+          <button class="btn btn-danger" (click)="goTo(pager.index + 1);">Next</button>
           <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
-          <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
         </div>
       </div>
 
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <div class="resut" *ngIf="mode=='result' ">
+    <div class="result" *ngIf="mode=='result' ">
         <h2>Your Test Results</h2>
         <div *ngFor="let question of quiz.questions; let index = index">
             <div class="result-question">
@@ -75,9 +75,9 @@
         <h3 class="alert alert-info text-center">You may close this window.</h3>
     </div>
     <hr />
-    <div *ngIf="mode!='result'">
-        <button class="btn btn-info" (click)="mode = 'quiz'">Back To Quiz</button>
-        <button class="btn btn-warning" (click)="mode = 'review'">Review Answers</button>
+    <div *ngIf="mode!='result' text-center">
+        <button class="btn btn-info" (click)="mode = 'quiz'">Back To Quiz</button> |
+        <button class="btn btn-warning" (click)="mode = 'review'">Review Answers</button> |
         <button class="btn btn-primary" (click)="onSubmit();">Submit Quiz</button>
     </div>
 
@@ -86,6 +86,6 @@
 <hr />
 
 <h5 class="footer">
-    <button type="button" (click)="goBack()" class="btn btn-secondary">Back</button> |
+   <button type="button" (click)="goBack()" class="btn btn-secondary">Back</button> 
 
 </h5>
