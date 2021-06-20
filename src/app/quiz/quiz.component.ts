@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from '../services/quiz.service';
 import { Option, Question, Test, QuizConfig } from '../models/app';
 
@@ -11,7 +11,8 @@ import { Option, Question, Test, QuizConfig } from '../models/app';
 })
 export class QuizComponent implements OnInit {
 
-
+  //test: Test = new Test();
+  //id: any;
   quizes: any[] = [];
   quiz: Test = new Test(null);
   mode = 'quiz';
@@ -46,13 +47,22 @@ export class QuizComponent implements OnInit {
 
 
   constructor(private _router: Router,
-              private _quizService: QuizService){  }
+              private _quizService: QuizService,
+              private _activatedRouter: ActivatedRoute){  }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.quizes = this._quizService.getAll();
     this.quizName = this.quizes[0].id;
     this.loadQuiz(this.quizName);
   }
+
+  /*ngOnInit(): void{
+    this.id = this._activatedRouter.snapshot.paramMap.get('http://localhost:3000/dpquestions');
+    this._quizService.getAllJSQuestions().subscribe(results => {
+      this.id = results;
+    }, (error) => { console.log(error); })
+  }*/
+
   loadQuiz(quizName: string) {
     this._quizService.get(quizName).subscribe(result => {
       this.quiz = new Test(result);
