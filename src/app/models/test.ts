@@ -6,7 +6,7 @@ export class Test{
     name: string = '';
     description: string = '';
     config!: QuizConfig;
-    questions: Question[] = [];
+    questions: Array<Question> = [];
 
     constructor(data: any){
         if(data){
@@ -14,7 +14,7 @@ export class Test{
             this.name = data.name;
             this.description = data.description;
             this.config = new QuizConfig(data.config);
-            this.questions.forEach(q => {
+            data.questions.forEach((q:any) => {
                 this.questions.push(new Question(q));
             });
         }

@@ -5,12 +5,12 @@ export class Option {
     name: string;
     isAnswer: boolean;
     selected: boolean = false;
-    
-    constructor(data: any){
-        data =  data || {};
+
+    constructor(data: any) {
+        data = data || {};
         this.id = data.id;
-        this.questionId =  data.questionId;
-        this.isAnswer = data.isAnswer;
+        this.questionId = data.questionId;
         this.name = data.name;
+        this.isAnswer = data.isAnswer;
     }
 }
