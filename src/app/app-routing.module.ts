@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DptestComponent } from './dptest/dptest.component';
+import { JstestComponent } from './jstest/jstest.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { QuizComponent } from './quiz/quiz.component';
@@ -19,6 +21,8 @@ export const applicationRoutes: Routes = [
     { path: 'contact', component: ContactComponent},
     { path: 'about', component: AboutComponent},
     { path: 'quizhome', component: QuizhomeComponent},
+    { path: 'dptest', component: DptestComponent},
+    { path: 'jstest', component: JstestComponent},
     { path: '**', component: PageNotFoundComponent}
     
 ]

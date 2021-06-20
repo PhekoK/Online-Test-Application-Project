@@ -21,7 +21,7 @@ export class QuizService{
     getAll() {
         return  [
             {  id: 'data/javascriptquiz.json' , name: 'Javascript'},
-            {  id: 'data/designpatterns.json', name: 'Design Patterns'}
+            {  id: 'data/designpatternsquiz.json', name: 'Design Patterns'}
            
         ]
     }

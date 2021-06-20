@@ -1,7 +1,7 @@
 {
     "id": 1,
-    "name": "Design Patterns Test",
-    "description": "Design Patterns Test This Including Solid Principles",
+    "name": "Design Patterns",
+    "description": "Design Patterns, This Includes Solid Principles of Design Patterns",
     "questions": [
         {
             "id": 1010,
