@@ -14,7 +14,7 @@ export class QuizService{
         return this._httpClient.get<Test[]>('http://localhost:3000/questions')
     }
 
-    getAllDPQuestions() {
+    getAllDPQuestions() : Observable<Test[]> {
         return this._httpClient.get<Test[]>('http://localhost:3000/dpquestions')
     }
 
