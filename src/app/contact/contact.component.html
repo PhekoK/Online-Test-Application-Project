@@ -1,21 +1,33 @@
-<h2>Contact Us</h2>
 
-<form>
-    <div class="mb-3">
-        <label for="fullname" class="form-label">Full Name*</label>
-        <input type="text" class="form-control" name="fullname" id="fullname" [(ngModel)]="contact.fullname"/>
+<body>
+    <div class="class-header">
+        <div class="row">
+            <div class="col-12">
+                <h2>Contact Us</h2>
+            </div>
+        </div>
+        
     </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" name="email" id="email" [(ngModel)]="contact.email" />
-    </div>
-    <div class="mb-3">
-        <label for="phonenumber" class="form-label">Phone Number</label>
-        <input type="text" class="form-control" name="phonenumber" id="phonenumber" [(ngModel)]="contact.phonenumber" />
-    </div>
-    <div class="mb-3">
-        <label for="contactmessage" class="form-label">Message*</label>
-        <textarea name="contactmessage" id="contactmessage" class="form-control" cols="30" rows="10" [(ngModel)]="contact.contactmessage"></textarea>
-    </div><br />
-    <button type="submit" class="btn btn-info" (click)="ContactUs()">Submit</button>
-</form>
+    
+    
+    <form>
+        <div class="mb-3">
+            <label for="fullname" class="form-label">Full Name*</label>
+            <input type="text" class="form-control" name="fullname" id="fullname" [(ngModel)]="contact.fullname"/>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" name="email" id="email" [(ngModel)]="contact.email" />
+        </div>
+        <div class="mb-3">
+            <label for="phonenumber" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" name="phonenumber" id="phonenumber" [(ngModel)]="contact.phonenumber" />
+        </div>
+        <div class="mb-3">
+            <label for="contactmessage" class="form-label">Message*</label>
+            <textarea name="contactmessage" id="contactmessage" class="form-control" cols="30" rows="10" [(ngModel)]="contact.contactmessage"></textarea>
+        </div><br />
+        <button type="submit" class="btn btn-info" (click)="ContactUs()">Submit</button>
+    </form>
+    
+</body>

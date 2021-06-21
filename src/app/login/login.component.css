@@ -1,0 +1,12 @@
+form {
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+    margin: auto;
+    max-width: 330px;
+}
+
+input{
+    align-items: center;
+    padding: 10px;
+}

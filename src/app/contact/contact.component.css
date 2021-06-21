@@ -1,10 +1,9 @@
 body{
-    text-align: center;
-    color: white;
+    background-image: url("/src/assets/images/download.jpg");
+    background: transparent;
     
 }
 
-.container{
-    align-items: center;
-    color: white;
+.class-header{
+    background: url("/src/assets/images/download.jpg");
 }
