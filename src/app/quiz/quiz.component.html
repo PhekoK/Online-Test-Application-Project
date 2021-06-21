@@ -72,11 +72,11 @@
                         {{Option.name}}
                     </div>
                 </div>
-                <div class="p-1 m-2 alert {{ isCorrect (question) == 'correct' ? 'alert-success' : 'alert-danger'}}">
+                <div class="p-1 m-2 alert {{ isCorrect (question) == 'correct' ? 'alert-warning' : 'alert-danger'}}">
                     Your answer is {{isCorrect(question)}} . </div>
             </div>
         </div>
-        <h3 class="alert alert-info text-center">You may close this window.</h3>
+        <h3 class="alert alert-light text-center">Close this window.</h3>
     </div>
     <hr />
     <div *ngIf="mode!='result' text-center">
