@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
         if (this.userList[i].username == this.user.username) {
           localStorage.setItem('isLoggedIn', "true");
           localStorage.setItem('user', this.user.username);
+          alert('You are logged in :)');
           this._router.navigate(['/dashboard']);
         }
       }

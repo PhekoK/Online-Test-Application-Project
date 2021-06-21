@@ -10,3 +10,7 @@ input{
     align-items: center;
     padding: 10px;
 }
+
+.my-logo{
+    border-radius: 50px;
+}
