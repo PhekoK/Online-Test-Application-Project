@@ -19,6 +19,7 @@ import { QuizhomeComponent } from './quizhome/quizhome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RulesComponent } from './rules/rules.component';
 import { RegisterUpdateComponent } from './register-update/register-update.component';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { RegisterUpdateComponent } from './register-update/register-update.compo
     RouterModule.forRoot(applicationRoutes), 
     FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [MainComponent]
 })
 export class AppModule { }

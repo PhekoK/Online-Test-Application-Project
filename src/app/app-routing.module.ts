@@ -10,6 +10,7 @@ import { RegisterUpdateComponent } from './register-update/register-update.compo
 import { RegisterComponent } from './register/register.component';
 import { ReviewComponent } from './review/review.component';
 import { RulesComponent } from './rules/rules.component';
+import { AuthGuard } from './services/auth.guard';
 
 export const applicationRoutes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -17,12 +18,12 @@ export const applicationRoutes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'register', component: RegisterComponent},
     { path: 'review', component: ReviewComponent},
-    { path: 'quiz', component: QuizComponent},
-    { path: 'contact', component: ContactComponent},
+    { path: 'quiz', component: QuizComponent, canActivate: [AuthGuard]},
+    { path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
     { path: 'about', component: AboutComponent},
-    { path: 'quizhome', component: QuizhomeComponent},
+    { path: 'quizhome', component: QuizhomeComponent, canActivate: [AuthGuard]},
     { path: 'rules', component: RulesComponent},
-    { path: 'register-update', component: RegisterUpdateComponent},
+    { path: 'register-update', component: RegisterUpdateComponent, canActivate: [AuthGuard]},
     { path: '**', component: PageNotFoundComponent}
     
 ]
