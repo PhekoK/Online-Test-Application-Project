@@ -18,16 +18,16 @@
 <hr>
 <!--Displays name of quiz that the candidate is currectly taking-->
 
-<div id="quiz">
+<div id="quiz" class="row">
     <h2 class="text-center font-weight-normal">{{quiz.name}}</h2>
     <p class="text-center">{{quiz.description}}</p>
     <hr />
 
     <!--Displays current question and their Options -->
     
-    <div *ngIf="mode=='quiz' && quiz">
-        <div *ngFor="let question of filteredQuestions;">
-          <div class="badge badge-dark">Question {{pager.index + 1}} of {{pager.count}}.</div>
+    <div  *ngIf="mode=='quiz' && quiz">
+        <div *ngFor="let question of filteredQuestions;" >
+          <div class="badge badge-dark" >Question {{pager.index + 1}} of {{pager.count}}.</div>
           <div class="row text-right">
             <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div>
           </div>
