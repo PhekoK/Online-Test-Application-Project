@@ -15,4 +15,12 @@ export class UserService {
     getUser(): Observable<User[]> {
         return this._httpClient.get<User[]>('http://localhost:3000/users');
     }
+
+    updateExitingUser(user: User) : Observable<User>{
+        return this._httpClient.put<User>('http://localhost:3000/users/' + user.id, user)
+    }
+
+    getUserById(id: any) : Observable<User>{
+        return this._httpClient.get<User>('http://localhost:3000/users/' + id)
+    }
 }

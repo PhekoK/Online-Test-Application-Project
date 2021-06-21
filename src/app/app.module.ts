@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { QuizhomeComponent } from './quizhome/quizhome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RulesComponent } from './rules/rules.component';
+import { RegisterUpdateComponent } from './register-update/register-update.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RulesComponent } from './rules/rules.component';
     ContactComponent,
     PageNotFoundComponent,
     QuizhomeComponent,
-    RulesComponent
+    RulesComponent,
+    RegisterUpdateComponent
   ],
   imports: [
     BrowserModule, 

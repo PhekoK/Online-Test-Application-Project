@@ -1,0 +1,20 @@
+<h2>Update Your Details</h2>
+
+<form>
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" id="username" [(ngModel)]="user.username" />
+    </div>
+    
+    <div class="mb-3">
+        <label for="password" class="form-label">New Password</label>
+        <input type="password" class="form-control" name="password" id="password" [(ngModel)]="user.password" />
+    </div> 
+    <div class="mb-3">
+        <label for="password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="cpassword" id="cpassword"  [(ngModel)]="user.password" />
+    </div>
+    <br/>
+
+    <button type="submit" class="btn btn-secondary" (click)="updateDetails()" >Update</button>
+</form>

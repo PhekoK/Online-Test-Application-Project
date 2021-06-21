@@ -6,8 +6,10 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizhomeComponent } from './quizhome/quizhome.component';
+import { RegisterUpdateComponent } from './register-update/register-update.component';
 import { RegisterComponent } from './register/register.component';
 import { ReviewComponent } from './review/review.component';
+import { RulesComponent } from './rules/rules.component';
 
 export const applicationRoutes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -19,6 +21,8 @@ export const applicationRoutes: Routes = [
     { path: 'contact', component: ContactComponent},
     { path: 'about', component: AboutComponent},
     { path: 'quizhome', component: QuizhomeComponent},
+    { path: 'rules', component: RulesComponent},
+    { path: 'register-update', component: RegisterUpdateComponent},
     { path: '**', component: PageNotFoundComponent}
     
 ]

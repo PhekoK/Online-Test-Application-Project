@@ -53,7 +53,7 @@
 
     <div class="row text-center" *ngIf="mode=='review'">
         <div class="col-4 cursor-pointer" *ngFor="let question of quiz.questions; let index = index ; ">
-            <div class="p-3 mb-2 {{ isAnswered(question) == 'Answered' ? 'bg-info' : 'bg-warning'}}">{{index + 1}}. {{
+            <div class="p-3 mb-2 {{ isAnswered(question) == 'Answered' ? 'bg-success' : 'bg-danger'}}">{{index + 1}}. {{
                 isAnswered(question) }}</div>
         </div>
     </div>
