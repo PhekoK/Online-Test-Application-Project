@@ -1,6 +1,6 @@
 <div class="row">
 
-  <h5 class="text-right">User ID:</h5>
+  <h5 class="text-right">User ID: </h5>
     <div class="col-6">
         <h3>Online Assessment</h3>
     </div>
@@ -27,8 +27,11 @@
     
     <div *ngIf="mode=='quiz' && quiz">
         <div *ngFor="let question of filteredQuestions;">
-          <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
-          <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div>
+          <div class="badge badge-dark">Question {{pager.index + 1}} of {{pager.count}}.</div>
+          <div class="row text-right">
+            <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div>
+          </div>
+          
           <h3 class="font-weight-normal">{{pager.index + 1}}.
             <span [innerHTML]="question.name"></span>
           </h3>
@@ -36,7 +39,7 @@
             <div class="col-6" *ngFor="let option of question.options">
               <div class="option">
                 <label class="font-weight-normal" [attr.for]="option.id">
-                  <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" (change)="onSelect(question, option);" /> {{option.name}}
+                  <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" class="bg bg-success" (change)="onSelect(question, option);" /> {{option.name}}
                 </label>
               </div>
             </div>
@@ -65,7 +68,7 @@
                 <h4>{{index + 1}}. {{question.name}}</h4>
                 <div class="row">
                     <div class="col-6" *ngFor="let Option of question.options">
-                        <input type="checkbox" id="{{Option.id}}" disabled="disabled" [(ngModel)]="Option.selected" />
+                        <input type="radio" id="{{Option.id}}" disabled="disabled" [(ngModel)]="Option.selected" />
                         {{Option.name}}
                     </div>
                 </div>
@@ -77,7 +80,7 @@
     </div>
     <hr />
     <div *ngIf="mode!='result' text-center">
-        <button class="btn btn-info" (click)="mode = 'quiz'">Back To Quiz</button> |
+        <button class="btn btn-info" (click)="mode = 'quiz'">Back To Assessment</button> |
         <button class="btn btn-warning" (click)="mode = 'review'">Review Answers</button> |
         <button class="btn btn-primary" (click)="onSubmit();">Submit Quiz</button>
     </div>

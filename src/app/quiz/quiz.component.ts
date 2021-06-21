@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import {  Router } from '@angular/router';
 import { QuizService } from '../services/quiz.service';
 import { Option, Question, Test, QuizConfig } from '../models/app';
 import { HelperService } from '../services/helper.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-quiz',
@@ -57,6 +58,8 @@ export class QuizComponent implements OnInit {
     this.quizes = this._quizService.getAll(); //fetches quizes from backend 
     this.quizName = this.quizes[0].id;
     this.loadQuiz(this.quizName);
+    
+    //User ID
   }
 
   /*ngOnInit(): void{
@@ -134,6 +137,7 @@ export class QuizComponent implements OnInit {
     let answers = [];
     this.quiz.questions.forEach(i => answers.push({ 'testId': this.id , 'questionId': i.id, 'answered': i.answered}));
 
+    alert('You are about to submit the test...!!')
     console.log(this.quiz.questions);
     this.mode = 'result';
   }
